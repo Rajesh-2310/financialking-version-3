@@ -1,0 +1,128 @@
+/* src/styles/App.css */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #000;
+}
+
+.intro-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: #000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  overflow: hidden; /* Hide scrollbar for the intro */
+}
+
+.intro-screen {
+  text-align: center;
+  animation: fade-out 1s forwards 1.5s;
+}
+
+.welcome-text {
+  font-size: 5rem;
+  font-weight: bold;
+  letter-spacing: 5px;
+  color: #fff;
+}
+
+@keyframes fade-out {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.title-center {
+  font-size: 5rem;
+  font-weight: bold;
+  letter-spacing: 5px;
+  color: gold;
+  text-shadow: 0 0 5px gold, 0 0 10px gold, 0 0 15px gold;
+  animation: final-glow 1s forwards 2s;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes final-glow {
+  from {
+    text-shadow: 0 0 5px gold, 0 0 10px gold, 0 0 15px gold;
+  }
+  to {
+    text-shadow: 0 0 20px gold, 0 0 40px gold, 0 0 60px gold;
+  }
+}
+
+.form-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-image: url('../login.jpg');
+  background-size: cover;
+  background-position: center;
+  animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.form-wrapper {
+  width: 50%;
+  height: 70%;
+  perspective: 1000px;
+  position: relative;
+}
+
+.form-wrapper::before {
+  content: "FINANCIAL KING";
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ff0000;
+  text-shadow: 0 0 5px #ff0000;
+}
+
+.form-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.form-wrapper.flipped .form-inner {
+  transform: rotateY(180deg);
+}
+
+.form-front,
+.form-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+}
+
+.form-back {
+  transform: rotateY(180deg);
+}

@@ -1,0 +1,5 @@
+{
+    "terminal.integrated.commandsToSkipShell": [
+        "css.lint.unknownAtRules\": \"ignore"
+    ]
+}
